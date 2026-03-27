@@ -375,6 +375,34 @@
         });
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-    </script>
-</body>
+    </script>  
+    <div id="music-container" style="position: fixed; bottom: 20px; left: 20px; z-index: 9999; display: flex; align-items: center; background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); padding: 10px 15px; border-radius: 50px; border: 1px solid rgba(255,255,255,0.2); cursor: pointer; transition: 0.3s;" onclick="toggleMusic()">
+    <div id="music-icon" style="font-size: 20px; margin-right: 10px;">🎵</div>
+    <span id="music-status" style="color: white; font-size: 14px; font-family: 'Segoe UI', sans-serif;">Bật nhạc: Mình Cùng Nhau Đóng Băng</span>
+    <audio id="bg-music" loop>
+        <source src="minh-cung-nhau-dong-bang.mp3" type="audio/mpeg">
+    </audio>
+</div>
+
+<script>
+    function toggleMusic() {
+        const music = document.getElementById('bg-music');
+        const icon = document.getElementById('music-icon');
+        const status = document.getElementById('music-status');
+        const container = document.getElementById('music-container');
+
+        if (music.paused) {
+            music.play().catch(e => console.log("Yêu cầu tương tác để phát nhạc"));
+            icon.innerHTML = "⏸️";
+            status.innerHTML = "Đang phát: Mình Cùng Nhau Đóng Băng - Thùy Chi";
+            container.style.background = "rgba(255, 77, 77, 0.3)";
+        } else {
+            music.pause();
+            icon.innerHTML = "🎵";
+            status.innerHTML = "Đã dừng nhạc";
+            container.style.background = "rgba(255, 255, 255, 0.1)";
+        }
+    }
+</script>
+</body>  
 </html>
