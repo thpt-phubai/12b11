@@ -3,120 +3,188 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trang web học trực tuyến</title>
+    <title>Đại gia đình 12B11</title>
     <style>
-        /* Đặt lại các khoảng cách mặc định để trang web gọn gàng hơn */
-        body { 
-            font-family: Arial, sans-serif; 
-            margin: 0; 
-            padding: 0; 
-            background-color: #f0f2f5; 
+        /* CÀI ĐẶT CHUNG CHO TOÀN TRANG */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fdfbfb; /* Màu nền trắng hơi ngả hồng nhẹ */
+            color: #333;
+            line-height: 1.6;
         }
 
-        /* Trang trí thanh phần trên cùng (Header) */
-        header { 
-            background-color: #1a73e8; /* Màu xanh dương giống nhiều trang giáo dục */
-            color: white; 
-            padding: 15px 30px; 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-        }
-
-        /* Trang trí các đường link trên thanh menu */
-        nav a { 
-            color: white; 
-            text-decoration: none; 
-            margin-left: 20px; 
-            font-weight: bold;
-        }
-
-        nav a:hover {
-            text-decoration: underline; /* Hiện gạch chân khi đưa chuột vào */
-        }
-
-        /* Trang trí phần banner chào mừng */
-        .banner { 
-            background-color: white; 
-            padding: 40px 20px; 
-            text-align: center; 
-            border-bottom: 2px solid #ddd;
-        }
-
-        /* Cấu trúc phần chứa các khóa học */
-        .danh-sach-khoa-hoc { 
-            display: flex; 
-            justify-content: center; 
-            padding: 30px; 
-            gap: 20px; /* Khoảng cách giữa các khóa học */
-            flex-wrap: wrap; /* Tự động xuống dòng nếu màn hình nhỏ */
-        }
-
-        /* Trang trí từng ô khóa học */
-        .khoa-hoc { 
-            background: white; 
-            padding: 20px; 
-            border-radius: 8px; /* Bo tròn góc */
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Tạo bóng đổ nhẹ cho đẹp */
-            width: 250px; 
-            text-align: center; 
-        }
-
-        /* Trang trí nút bấm */
-        button {
-            background-color: #1a73e8;
+        /* PHẦN 1: BANNER MỞ ĐẦU HOÀNH TRÁNG */
+        .banner-mo-dau {
+            /* Dùng màu chuyển sắc (gradient) từ hồng sang cam nhạt để tạo sự trẻ trung */
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
             color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
+            text-align: center;
+            padding: 100px 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
 
-        button:hover {
-            background-color: #1557b0;
+        .banner-mo-dau h1 {
+            font-size: 50px;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3); /* Đổ bóng chữ cho nổi bật */
+        }
+
+        .banner-mo-dau p {
+            font-size: 22px;
+            font-style: italic;
+            margin-top: 10px;
+        }
+
+        /* PHẦN 2: GIỚI THIỆU LỚP */
+        .gioi-thieu {
+            max-width: 900px;
+            margin: 50px auto; /* Căn giữa màn hình */
+            padding: 30px;
+            background: white;
+            border-radius: 15px; /* Bo góc mềm mại */
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+
+        .gioi-thieu h2 {
+            color: #ff6b6b;
+            font-size: 35px;
+        }
+
+        .diem-nhan-container {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 30px;
+            flex-wrap: wrap; /* Tự động xuống dòng trên điện thoại */
+        }
+
+        .diem-nhan {
+            width: 45%;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-left: 5px solid #ff9a9e; /* Đường viền trang trí bên trái */
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        /* PHẦN 3: ĐỘNG LỰC & GẮN KẾT */
+        .dong-luc {
+            background-color: #fff0f5;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .dong-luc h2 {
+            color: #d6336c;
+            font-size: 30px;
+            margin-bottom: 30px;
+        }
+
+        .cau-noi {
+            max-width: 800px;
+            margin: 0 auto 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            font-size: 18px;
+            color: #555;
+            position: relative;
+        }
+
+        /* PHẦN 4: GÓC KỶ NIỆM (HÌNH ẢNH) */
+        .ky-niem {
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .luoi-hinh-anh {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .luoi-hinh-anh img {
+            width: 300px;
+            height: 200px;
+            object-fit: cover; /* Cắt ảnh cho vừa khung mà không bị méo */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease; /* Hiệu ứng chuyển động mượt mà */
+        }
+
+        /* Phóng to ảnh một chút khi đưa chuột vào */
+        .luoi-hinh-anh img:hover {
+            transform: scale(1.05); 
+        }
+
+        /* CHÂN TRANG */
+        footer {
+            background-color: #343a40;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="logo"><h2>HọcTốt.vn</h2></div>
-        <nav>
-            <a href="#">Trang chủ</a>
-            <a href="#">Khóa học</a>
-            <a href="#">Thi thử</a>
-            <a href="#">Đăng nhập</a>
-        </nav>
+    <header class="banner-mo-dau">
+        <h1>✨ 12B11 - Thanh Xuân Rực Rỡ ✨</h1>
+        <p>"Nơi lưu giữ những tháng năm tươi đẹp nhất của chúng ta"</p>
     </header>
 
-    <div class="banner">
-        <h1>Bứt phá điểm số cùng chúng tôi!</h1>
-        <p>Hệ thống bài giảng và thi thử trắc nghiệm bám sát chương trình.</p>
-    </div>
+    <section class="gioi-thieu">
+        <h2>Tự Hào Là 12B11</h2>
+        <p>Lớp chúng mình không chỉ là một tập thể, mà là một gia đình nhỏ. Nơi hội tụ những cá nhân xuất sắc nhất, mang trong mình nhiệt huyết của tuổi trẻ.</p>
+        
+        <div class="diem-nhan-container">
+            <div class="diem-nhan">
+                <h3>📚 Học Giỏi, Trí Tuệ</h3>
+                <p>Không ngại bài khó, chẳng sợ thức khuya. 12B11 luôn dẫn đầu trong các phong trào học tập. Toán, Lý, Hóa hay Văn, Anh... chúng mình đều "cân" tất!</p>
+            </div>
+            <div class="diem-nhan">
+                <h3>👑 Trai Xinh - Gái Đẹp</h3>
+                <p>Nhan sắc thăng hạng, thần thái ngút ngàn. Không chỉ học bá mà lớp mình còn sở hữu dàn nam thanh nữ tú rạng rỡ nhất khối 12!</p>
+            </div>
+        </div>
+    </section>
 
-    <div class="danh-sach-khoa-hoc">
-        <div class="khoa-hoc">
-            <h3>Toán Học 12</h3>
-            <p>Luyện thi THPT Quốc Gia</p>
-            <button>Học ngay</button>
+    <section class="dong-luc">
+        <h2>💖 Gửi Tới Những Người Bạn Của Tôi 💖</h2>
+        
+        <div class="cau-noi">
+            "Chỉ còn một chút thời gian nữa thôi là chúng ta sẽ bước vào cánh cửa Đại học. Dù chặng đường phía trước có chông gai, hãy nhớ rằng cậu không bao giờ cô đơn vì luôn có 12B11 ở bên."
         </div>
-        <div class="khoa-hoc">
-            <h3>Vật Lý 12</h3>
-            <p>Chinh phục điểm 9+</p>
-            <button>Học ngay</button>
+        
+        <div class="cau-noi">
+            "Không có áp lực, không có kim cương. Những giọt mồ hôi rơi trên trang sách hôm nay sẽ đổi lấy nụ cười rạng rỡ vào ngày nhận giấy báo trúng tuyển. Cố lên nhé 12B11!"
         </div>
-        <div class="khoa-hoc">
-            <h3>Hóa Học 12</h3>
-            <p>Nắm trọn lý thuyết và bài tập</p>
-            <button>Học ngay</button>
+
+        <div class="cau-noi">
+            "Dù sau này mỗi đứa một phương, làm những công việc khác nhau, nhưng tình bạn của chúng ta ở tuổi 18 này sẽ mãi mãi không bao giờ phai nhạt. Tôi yêu các bạn!"
         </div>
-    </div>
+    </section>
+
+    <section class="ky-niem">
+        <h2>📸 Góc Kỷ Niệm Yêu Thương</h2>
+        <p>Những khoảnh khắc không thể nào quên của đại gia đình chúng ta.</p>
+        
+        <div class="luoi-hinh-anh">
+            <img src="https://via.placeholder.com/300x200?text=Anh+Tap+The+Lop" alt="Ảnh tập thể lớp">
+            <img src="https://via.placeholder.com/300x200?text=Anh+Di+Choi" alt="Ảnh lớp đi chơi">
+            <img src="https://via.placeholder.com/300x200?text=Anh+Hoc+Tap" alt="Ảnh đang học nhóm">
+        </div>
+    </section>
+
+    <footer>
+        <p>Được thiết kế bằng tất cả tình yêu thương dành cho 12B11 ❤️</p>
+    </footer>
 
 </body>
 </html>
-<div class="banner">
-    <h1>Bứt phá điểm số cùng chúng tôi!</h1>
-    <p>Hệ thống bài giảng và thi thử trắc nghiệm bám sát chương trình.</p>
-    
-    <img src="https://via.placeholder.com/600x200" alt="Hình ảnh học tập" style="border-radius: 10px; margin-top: 20px; max-width: 100%;">
-</div>
