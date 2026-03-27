@@ -314,27 +314,37 @@
 
         window.addEventListener('resize', init);
         init(); render();
+// --- HỆ THỐNG ĐẾM NGƯỢC THI THPT 2026 ---
+// Thiết lập ngày: Năm 2026, Tháng 6 (số 5), Ngày 11, Lúc 7:30 sáng
+const target = new Date(2026, 5, 11, 7, 30, 0).getTime();
 
-        // --- COUNTDOWN SYSTEM (Target June 11, 2026) ---
-        const target = new Date("June 11, 2026 07:30:00").getTime();
-        function updateClock() {
-            const now = new Date().getTime();
-            const diff = target - now;
-            if(diff < 0) return;
+function updateClock() {
+    const now = new Date().getTime();
+    const diff = target - now;
 
-            const d = Math.floor(diff / (1000 * 60 * 60 * 24));
-            const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-            const s = Math.floor((diff % (1000 * 60)) / 1000);
+    // Nếu đã đến hoặc qua ngày thi
+    if (diff <= 0) {
+        const container = document.querySelector('.countdown-container');
+        if (container) container.innerHTML = "<h3 style='color: var(--primary-red);'>CHÚC 12B11 THI TỐT!</h3>";
+        return;
+    }
 
-            document.getElementById('days').innerText = d < 10? '0'+d : d;
-            document.getElementById('hours').innerText = h < 10? '0'+h : h;
-            document.getElementById('minutes').innerText = m < 10? '0'+m : m;
-            document.getElementById('seconds').innerText = s < 10? '0'+s : s;
-        }
-        setInterval(updateClock, 1000);
-        updateClock();
+    // Tính toán thời gian còn lại
+    const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const s = Math.floor((diff % (1000 * 60)) / 1000);
 
+    // Cập nhật giá trị vào các ô (đảm bảo ID khớp với HTML)
+    if(document.getElementById('days')) document.getElementById('days').innerText = d.toString().padStart(2, '0');
+    if(document.getElementById('hours')) document.getElementById('hours').innerText = h.toString().padStart(2, '0');
+    if(document.getElementById('minutes')) document.getElementById('minutes').innerText = m.toString().padStart(2, '0');
+    if(document.getElementById('seconds')) document.getElementById('seconds').innerText = s.toString().padStart(2, '0');
+}
+
+// Khởi chạy ngay lập tức và lặp lại mỗi giây
+updateClock();
+setInterval(updateClock, 1000);
         // --- TYPEWRITER SYSTEM ---
         const quotes =",
             "Cảm ơn vì đã cùng nhau đi qua những ngày mặt trời rực rỡ nhất. ",
