@@ -365,7 +365,38 @@
             entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('active'); });
         });
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+// --- COUNTDOWN SYSTEM ---
+const targetDate = new Date(2026, 5, 11, 7, 30, 0).getTime(); 
 
+function updateCountdown() {
+    const now = new Date().getTime();
+    const diff = targetDate - now;
+
+    const dEl = document.getElementById('days');
+    const hEl = document.getElementById('hours');
+    const mEl = document.getElementById('minutes');
+    const sEl = document.getElementById('seconds');
+
+    if (!dEl || !hEl || !mEl || !sEl) return;
+
+    if (diff <= 0) {
+        document.querySelector('.countdown-container').innerHTML = "<h3>CHÚC 12B11 THI TỐT!</h3>";
+        return;
+    }
+
+    const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const s = Math.floor((diff % (1000 * 60)) / 1000);
+
+    dEl.innerText = d.toString().padStart(2, '0');
+    hEl.innerText = h.toString().padStart(2, '0');
+    mEl.innerText = m.toString().padStart(2, '0');
+    sEl.innerText = s.toString().padStart(2, '0');
+}
+
+updateCountdown(); 
+setInterval(updateCountdown, 1000);
     </script>
 </body>
 </html>
