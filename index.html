@@ -821,22 +821,21 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
 <div style="
     position: relative;
     z-index: 100;
-    margin: 30px auto 100px auto; /* Chừa 100px ở dưới để né thanh nhạc */
-    width: 92%; /* Cách lề một chút cho đẹp trên cả PC và điện thoại */
-    max-width: 1000px; /* Kích thước tối đa để không bị quá loãng trên PC */
-    height: 70vh; /* SIÊU QUAN TRỌNG: Cao bằng 70% màn hình thiết bị */
-    min-height: 500px; /* Không bao giờ lùn hơn 500px để anh em đủ không gian chat */
+    margin: 20px auto 80px auto; /* Canh lề an toàn, né thanh nhạc */
+    width: 95%; /* Bám sát viền trên điện thoại, vừa vặn trên PC */
+    max-width: 1000px; /* Không bị bè ra quá to trên màn hình máy tính */
+    height: 75vh; /* Cao bằng 75% màn hình thiết bị (Cực kỳ quan trọng cho Mobile) */
+    min-height: 500px; /* Đảm bảo không bao giờ bị lùn tịt */
     background: #ffffff;
     border-radius: 20px;
-    overflow: hidden; 
     border: 4px solid #ff69b4;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.5);
 ">
     <iframe 
         src="https://organizations.minnit.chat/699534221388423/Main" 
         style="
             width: 100%; 
-            height: 100%; /* Trả về 100% để KHÔNG BAO GIỜ bị mất ô nhập tin nhắn */
+            height: 100%; 
             border: none;
             display: block;
         " 
