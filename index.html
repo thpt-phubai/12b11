@@ -771,63 +771,56 @@ async function boot(){
 if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',boot);}else{boot();}
 })();
 </script>
+if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',boot);}else{boot();}
+})();
+</script>
+
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+
 <script>
-  // Đợi web load xong 1 cái là nổ pháo luôn
   window.addEventListener('load', function() {
-    confetti({
-      particleCount: 150,    // Số lượng hạt pháo (150 hạt cho rực rỡ)
-      spread: 70,           // Độ tỏa ra
-      origin: { y: 0.6 },   // Vị trí bắn (từ giữa màn hình hất lên)
-      colors: ['#ff69b4', '#ff1493', '#ffffff'] // Màu hồng và trắng của lớp mình
+    // --- PHÁO HOA ĂN MỪNG ---
+    confetti({ 
+        particleCount: 150, 
+        spread: 70, 
+        origin: { y: 0.6 }, 
+        colors: ['#ff69b4', '#ff1493', '#ffffff'] 
+    });
+
+    // --- NGHIÊNG 3D LOGO (SỬA LỖI KHÔNG TÌM THẤY) ---
+    var logo = document.querySelector('img[src*="logo2"]') || document.querySelector('.hero-main-logo img');
+    if(logo) {
+        VanillaTilt.init(logo, { 
+            max: 25, 
+            speed: 400, 
+            glare: true, 
+            "max-glare": 0.5, 
+            scale: 1.1 
+        });
+    }
+
+    // --- CHUỘT LẤP LÁNH & TRÁI TIM ---
+    var colors = ["#ff69b4", "#ffffff", "#00ffff"];
+    window.addEventListener('mousemove', function(e) {
+        var p = document.createElement("span");
+        p.innerHTML = "✨";
+        p.style.cssText = `position:fixed;left:${e.clientX}px;top:${e.clientY}px;pointer-events:none;z-index:999999;color:${colors[Math.floor(Math.random()*3)]};transition:1s;font-size:20px;`;
+        document.body.appendChild(p);
+        setTimeout(() => { p.style.transform = "translateY(-50px) scale(0)"; p.style.opacity = "0"; }, 50);
+        setTimeout(() => p.remove(), 1000);
+    });
+
+    window.addEventListener('click', function(e) {
+        var h = document.createElement("div");
+        h.innerHTML = "❤️";
+        h.style.cssText = `position:fixed;left:${e.clientX}px;top:${e.clientY}px;font-size:40px;pointer-events:none;z-index:999999;transition:1.5s;`;
+        document.body.appendChild(h);
+        setTimeout(() => { h.style.transform = "translateY(-150px) rotate(20deg) scale(2)"; h.style.opacity = "0"; }, 50);
+        setTimeout(() => h.remove(), 1500);
     });
   });
 </script>
-<script>
-(function() {
-    var colors = ["#ff69b4", "#ff1493", "#ffffff"]; // Màu hồng & trắng theo tông 12B11
-    var characters = ["✨", "⭐", "💖", "•"]; // Các hạt lấp lánh
-    var elementGroup = [];
-
-    window.addEventListener('mousemove', function(e) {
-        var x = e.clientX;
-        var y = e.clientY;
-        createParticle(x, y);
-    });
-
-    function createParticle(x, y) {
-        var particle = document.createElement("span");
-        var randomChar = characters[Math.floor(Math.random() * characters.length)];
-        var randomColor = colors[Math.floor(Math.random() * colors.length)];
-        
-        particle.innerHTML = randomChar;
-        particle.style.cssText = `
-            position: fixed;
-            left: ${x}px;
-            top: ${y}px;
-            pointer-events: none;
-            z-index: 999999;
-            color: ${randomColor};
-            font-size: ${Math.random() * 15 + 10}px;
-            transition: transform 1s, opacity 1s;
-            transform: translate(-50%, -50%);
-        `;
-
-        document.body.appendChild(particle);
-        elementGroup.push(particle);
-
-        // Hiệu ứng bay lên và mờ dần
-        setTimeout(function() {
-            particle.style.transform = `translate(-50%, ${-Math.random() * 100 - 50}px) scale(0)`;
-            particle.style.opacity = "0";
-        }, 50);
-
-        // Xóa hạt sau khi diễn xong để không nặng máy
-        setTimeout(function() {
-            particle.remove();
-        }, 1000);
-    }
-})();
-</script>
+    
 </body>
 </html>
