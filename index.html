@@ -1,0 +1,1763 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>12B11 — Kỷ Yếu Thanh Xuân 2023–2026</title>
+
+<!-- ═══ FONTS: Playfair Display + Lato ═══ -->
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"/>
+
+<style>
+/* ══════════════════════════════════════════════════════════════
+   DESIGN TOKENS
+══════════════════════════════════════════════════════════════ */
+:root {
+  --cream:     #F8F6F1;
+  --silk-1:    #EEF4FF;   /* Cool Blue nhạt */
+  --silk-2:    #F0F7FF;
+  --silk-3:    #E8F0FE;
+  --blue:      #4A90D9;
+  --blue-deep: #1A4480;
+  --navy:      #0D1B2A;
+  --navy-soft: #1E3454;
+  --gold:      #C9A84C;
+  --muted:     #6B7A90;
+  --faint:     #A0AEC0;
+  --line:      rgba(74,144,217,.15);
+  --glass:     rgba(255,255,255,.68);
+  --glass2:    rgba(255,255,255,.38);
+  --shadow-sm: 0 2px 8px rgba(26,68,128,.07);
+  --shadow-md: 0 6px 24px rgba(26,68,128,.11);
+  --shadow-lg: 0 16px 48px rgba(26,68,128,.14);
+  --F1: 'Playfair Display', Georgia, serif;
+  --F2: 'Lato', system-ui, sans-serif;
+  --ease: cubic-bezier(.4,0,.2,1);
+  --spring: cubic-bezier(.34,1.56,.64,1);
+  --container: 1180px;
+}
+
+/* ── RESET ── */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;scroll-padding-top:70px;}
+body{font-family:var(--F2);color:var(--navy);overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+img{display:block;max-width:100%;}
+button{cursor:pointer;border:none;background:none;font-family:inherit;}
+a{text-decoration:none;color:inherit;}
+ul{list-style:none;}
+
+/* ── CONTAINER ── */
+.wrap{width:100%;max-width:var(--container);margin:0 auto;padding:0 32px;}
+
+/* ── SILK ANIMATED BACKGROUND ──
+   Hai màu Cream + Cool Blue cuộn vào nhau như lụa tơ tằm  */
+.silk-bg {
+  background:
+    linear-gradient(135deg,
+      var(--cream) 0%,
+      var(--silk-1) 25%,
+      var(--silk-2) 50%,
+      var(--silk-3) 75%,
+      var(--cream) 100%);
+  background-size: 400% 400%;
+  animation: silk-flow 14s ease infinite;
+}
+@keyframes silk-flow{
+  0%   {background-position:0% 50%;}
+  50%  {background-position:100% 50%;}
+  100% {background-position:0% 50%;}
+}
+
+/* ── HOLOGRAM TEXT EFFECT ──
+   7 màu cầu vồng pastel lấp lánh như tem hologram  */
+.holo {
+  background: linear-gradient(
+    90deg,
+    #ff9de2 0%,
+    #ffb347 10%,
+    #ffe066 20%,
+    #9effd8 35%,
+    #a0cfff 50%,
+    #d0abff 65%,
+    #ff9de2 80%,
+    #ffb347 90%,
+    #ffe066 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: holo-shift 4s linear infinite;
+  will-change: background-position;
+}
+@keyframes holo-shift{
+  0%   {background-position:0% center;}
+  100% {background-position:200% center;}
+}
+
+/* ── SCROLL REVEAL ── */
+.reveal{opacity:0;transform:translateY(32px);transition:opacity .7s var(--ease),transform .7s var(--ease);}
+.reveal.in{opacity:1;transform:translateY(0);}
+.rv1{transition-delay:.1s;} .rv2{transition-delay:.2s;} .rv3{transition-delay:.3s;} .rv4{transition-delay:.4s;}
+
+/* ── SECTION COMMON ── */
+.section-head{text-align:center;margin-bottom:52px;}
+.eyebrow{font-family:var(--F2);font-size:.68rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--blue);display:block;margin-bottom:12px;}
+.s-title{font-family:var(--F1);font-size:clamp(2rem,4vw,3rem);font-weight:700;color:var(--navy);line-height:1.2;margin-bottom:12px;}
+.s-lead{font-family:var(--F2);font-size:1rem;font-weight:300;color:var(--muted);max-width:520px;margin:0 auto;line-height:1.75;}
+hr.rule{border:none;border-top:1px solid var(--line);margin:0;}
+/* ── DOC MENU GAME FRAME ── */
+.nav-doc-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 15px; /* Chừa chỗ cho cánh */
+}
+
+.nav-doc-btn {
+  position: relative;
+  background: #fff; /* Nền trắng bo cong đáng yêu */
+  border-radius: 10px;
+  padding: 6px 16px;
+  font-family: var(--F1);
+  font-size: 0.85rem;
+  font-weight: 700;
+  z-index: 2;
+  border: 2px solid transparent;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: all 0.3s var(--spring);
+}
+
+/* Viền lấp lánh quanh ô trắng */
+.nav-doc-btn::before {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 12px;
+  background: linear-gradient(45deg, #ff9de2, #ffb347, #9effd8, #a0cfff, #ff9de2);
+  background-size: 200% auto;
+  z-index: -1;
+  animation: holo-shift 3s linear infinite;
+}
+
+/* Đôi cánh trang trí kiểu Rank Cao Thủ */
+.nav-doc-btn::after {
+  content: '✦';
+  position: absolute;
+  right: -10px; top: -5px;
+  font-size: 12px; color: #ffb347;
+  text-shadow: 0 0 5px #fff;
+}
+
+.nav-doc-wrap::before, .nav-doc-wrap::after {
+  content: '◢'; /* Cánh cách điệu */
+  position: absolute;
+  font-size: 10px;
+  color: #a0cfff;
+  animation: wing-float 2s ease-in-out infinite alternate;
+}
+.nav-doc-wrap::before { left: 0; transform: rotate(180deg); }
+.nav-doc-wrap::after { right: 0; }
+
+@keyframes wing-float {
+  from { transform: translateY(-2px); opacity: 0.5; }
+  to { transform: translateY(2px); opacity: 1; }
+}
+
+.nav-doc-btn:hover {
+  transform: scale(1.1) rotate(2deg);
+  box-shadow: 0 0 20px rgba(160, 207, 255, 0.6);
+}
+
+/* ════════════════════════════════════════════════════════════
+   NAVIGATION
+════════════════════════════════════════════════════════════ */
+#nav{
+  position:fixed;top:0;left:0;right:0;z-index:800;
+  height:68px;
+  background:rgba(248,246,241,.88);
+  backdrop-filter:blur(24px);
+  -webkit-backdrop-filter:blur(24px);
+  border-bottom:1px solid var(--line);
+  transition:box-shadow .3s;
+}
+#nav.scrolled{box-shadow:var(--shadow-sm);}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:68px;}
+
+/* Brand */
+.nav-brand{display:flex;align-items:center;gap:10px;cursor:pointer;}
+.nav-brand-logo{width:38px;height:38px;position:relative;flex-shrink:0;}
+.nav-brand-logo img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;transition:opacity .4s;}
+.nav-brand-logo .lg2{opacity:0;}
+.nav-brand-logo:hover .lg1{opacity:0;} .nav-brand-logo:hover .lg2{opacity:1;}
+.nav-brand-text{font-family:var(--F1);font-size:1.2rem;font-weight:700;}
+.nav-brand-sub{font-family:var(--F2);font-size:.64rem;color:var(--muted);letter-spacing:.08em;}
+
+/* Links */
+.nav-links{display:flex;align-items:center;gap:4px;}
+.nav-links a,.nav-links button{
+  font-family:var(--F1);font-size:.88rem;font-weight:600;
+  padding:8px 16px;border-radius:8px;
+  background:linear-gradient(90deg,#ff9de2,#ffb347,#ffe066,#9effd8,#a0cfff,#d0abff,#ff9de2);
+  background-size:200% auto;
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  animation:holo-shift 4s linear infinite;
+  transition:background-color .2s;
+}
+.nav-links a:hover,.nav-links button:hover{background-color:var(--silk-1);}
+/* Nút Chill Zone nổi bật - Bật lại Hologram */
+.nav-chill {
+  background-color: var(--navy) !important; /* Nền xanh than làm nền cho chữ lấp lánh */
+  border-radius: 8px !important;
+  padding: 8px 18px !important;
+  font-weight: 700 !important;
+  
+  /* Bật lại hiệu ứng Hologram cho chữ */
+  background-image: linear-gradient(90deg, #ff9de2, #ffb347, #ffe066, #9effd8, #a0cfff, #d0abff, #ff9de2) !important;
+  background-size: 200% auto !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  animation: holo-shift 4s linear infinite !important;
+  
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.nav-chill:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+
+/* Mobile toggle */
+.nav-toggle{display:none;flex-direction:column;gap:5px;padding:6px;z-index:10;}
+.nav-toggle span{display:block;width:22px;height:2px;background:var(--navy);border-radius:2px;transition:.3s;}
+
+/* ════════════════════════════════════════════════════════════
+   HERO — City Night Slideshow + Spotify Player
+════════════════════════════════════════════════════════════ */
+#hero{
+  position:relative;
+  min-height:100vh;
+  padding-top:68px;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  overflow:hidden;
+}
+
+/* Slideshow layers */
+.hero-slide{
+  position:absolute;inset:0;
+  background-size:cover;background-position:center;
+  opacity:0;transition:opacity 1.8s ease;
+  z-index:0;
+}
+.hero-slide.active{opacity:1;}
+/* Overlay Trang Chủ: Sáng vừa phải, tự nhiên và dịu mắt */
+.hero-overlay {
+  position: absolute; 
+  inset: 0; 
+  z-index: 1;
+  background: linear-gradient(
+    to bottom,
+    rgba(13, 27, 42, 0.05) 0%,   /* Gần như trong suốt hoàn toàn ở trên bầu trời */
+    rgba(13, 27, 42, 0.2) 50%,   /* Hơi mờ cực nhẹ ở giữa để viền chữ Hologram sắc nét */
+    rgba(13, 27, 42, 0.35) 100%  /* Tối vừa đủ ở góc dưới cùng để nổi bật máy nghe nhạc */
+  );
+  backdrop-filter: brightness(1.1); /* SÁNG VỪA PHẢI (110%) - Cực kỳ dịu mắt */
+}
+
+.hero-content{
+  position:relative;z-index:2;
+  text-align:center;padding:40px 24px 32px;
+  width:100%;max-width:var(--container);
+}
+
+/* Hero title */
+.hero-year-tag{
+  display:inline-flex;align-items:center;gap:10px;
+  margin-bottom:20px;
+  font-family:var(--F2);font-size:.72rem;font-weight:700;
+  letter-spacing:.18em;color:var(--blue-deep);text-transform:uppercase;
+}
+.hero-year-tag span{display:block;width:32px;height:1px;background:var(--blue);}
+.hero-class-name{
+  font-family:var(--F1);
+  font-size:clamp(5.5rem,14vw,12rem);
+  font-weight:900;line-height:.88;
+  letter-spacing:-.03em;
+  background:linear-gradient(90deg,#ff9de2 0%,#ffb347 10%,#ffe066 20%,#9effd8 35%,#a0cfff 50%,#d0abff 65%,#ff9de2 80%,#ffb347 100%);
+  background-size:200% auto;
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  animation:holo-shift 5s linear infinite;
+  margin-bottom:16px;
+  filter:drop-shadow(0 2px 16px rgba(74,144,217,.18));
+}
+.hero-tagline{
+  font-family:var(--F1);font-style:italic;
+  font-size:clamp(.95rem,2vw,1.2rem);color:var(--navy-soft);
+  margin-bottom:40px;line-height:1.6;
+}
+
+/* ── SPOTIFY PLAYER ── */
+.player-wrap{
+  display:inline-block;
+  background:var(--glass);
+  border:1px solid rgba(255,255,255,.85);
+  border-radius:24px;
+  padding:28px 32px;
+  backdrop-filter:blur(28px);
+  -webkit-backdrop-filter:blur(28px);
+  box-shadow:var(--shadow-lg),inset 0 1px 0 rgba(255,255,255,.9);
+  max-width:420px;width:100%;text-align:left;
+  margin:0 auto;
+}
+
+.player-top{display:flex;gap:18px;align-items:flex-start;margin-bottom:22px;}
+/* Album art */
+.player-cover{
+  width:80px;height:80px;border-radius:14px;flex-shrink:0;
+  object-fit:cover;
+  background:linear-gradient(135deg,var(--silk-3),var(--silk-1));
+  border:1px solid var(--line);
+  box-shadow:var(--shadow-sm);
+  animation:cover-spin 20s linear infinite paused;
+}
+.player-cover.playing{animation-play-state:running;}
+@keyframes cover-spin{to{border-radius:50%;}}
+
+.player-meta{flex:1;min-width:0;}
+.player-title{
+  font-family:var(--F1);font-size:1.05rem;font-weight:700;
+  color:var(--navy);margin-bottom:4px;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.player-artist{font-size:.78rem;color:var(--muted);font-weight:400;margin-bottom:10px;}
+
+/* Track list mini */
+.player-tracklist{display:flex;gap:6px;flex-wrap:wrap;}
+.track-chip{
+  padding:4px 10px;border-radius:20px;font-size:.66rem;font-weight:700;
+  background:rgba(74,144,217,.1);color:var(--blue-deep);
+  border:1px solid rgba(74,144,217,.2);cursor:pointer;
+  transition:all .22s;letter-spacing:.03em;
+}
+.track-chip.active{background:var(--blue-deep);color:#fff;border-color:transparent;}
+.track-chip:hover:not(.active){background:rgba(74,144,217,.18);}
+
+/* Progress bar */
+.player-progress-wrap{margin-bottom:18px;}
+.player-progress-bar{
+  position:relative;height:4px;border-radius:4px;
+  background:rgba(26,68,128,.12);cursor:pointer;margin-bottom:6px;
+  overflow:hidden;
+}
+.player-progress-fill{
+  height:100%;background:linear-gradient(90deg,var(--blue),var(--blue-deep));
+  border-radius:4px;width:0%;transition:width .3s linear;
+  pointer-events:none;
+}
+/* Thumb trên progress */
+.player-progress-bar::after{
+  content:'';
+  position:absolute;top:50%;
+  width:12px;height:12px;border-radius:50%;
+  background:#fff;border:2px solid var(--blue);
+  transform:translate(-50%,-50%);
+  left:var(--prog,0%);
+  box-shadow:var(--shadow-sm);
+  pointer-events:none;
+  transition:left .3s linear;
+}
+.player-time{display:flex;justify-content:space-between;font-size:.64rem;color:var(--muted);}
+
+/* Controls */
+.player-controls{display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:18px;}
+.ctrl-btn{
+  width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  color:var(--navy-soft);font-size:1rem;
+  transition:all .22s;
+}
+.ctrl-btn:hover{background:rgba(74,144,217,.1);color:var(--blue-deep);transform:scale(1.1);}
+.ctrl-play{
+  width:52px;height:52px;font-size:1.3rem;
+  background:linear-gradient(135deg,var(--blue),var(--blue-deep));
+  color:#fff;box-shadow:0 4px 16px rgba(74,144,217,.35);
+}
+.ctrl-play:hover{box-shadow:0 6px 24px rgba(74,144,217,.5);transform:scale(1.08);}
+
+/* Volume */
+.player-vol{display:flex;align-items:center;gap:10px;}
+.vol-icon{font-size:.95rem;color:var(--muted);}
+.vol-slider{
+  flex:1;-webkit-appearance:none;appearance:none;
+  height:3px;border-radius:2px;
+  background:rgba(26,68,128,.15);outline:none;cursor:pointer;
+}
+.vol-slider::-webkit-slider-thumb{
+  -webkit-appearance:none;width:12px;height:12px;
+  border-radius:50%;background:var(--blue);cursor:pointer;
+  box-shadow:0 1px 4px rgba(0,0,0,.15);
+}
+
+/* Hero countdown */
+.hero-countdown{
+  display:flex;gap:0;margin-top:32px;
+  border-radius:14px;overflow:hidden;
+  box-shadow:var(--shadow-md);
+  border:1px solid var(--line);
+  background:var(--glass);
+  backdrop-filter:blur(16px);
+}
+.cd-blk{
+  padding:18px 24px;text-align:center;flex:1;
+  position:relative;
+}
+.cd-blk:not(:last-child)::after{
+  content:'';position:absolute;right:0;top:25%;bottom:25%;
+  width:1px;background:var(--line);
+}
+.cd-num{
+  display:block;font-family:var(--F1);
+  font-size:2.2rem;font-weight:700;line-height:1;
+  color:var(--navy-soft);letter-spacing:-1px;
+}
+.cd-lbl{
+  display:block;font-size:.6rem;font-weight:700;
+  letter-spacing:.12em;text-transform:uppercase;
+  color:var(--muted);margin-top:5px;
+}
+.cd-num.flip{animation:cd-flip .25s var(--ease);}
+@keyframes cd-flip{50%{opacity:0;transform:translateY(-5px);}}
+
+/* ════════════════════════════════════════════════════════════
+   PROFILES SECTION
+════════════════════════════════════════════════════════════ */
+#profiles{padding:100px 0;} .silk-bg{position:relative;}
+
+/* Tab bar */
+.tab-bar{
+  display:inline-flex;background:#fff;
+  border:1px solid var(--line);border-radius:12px;
+  padding:4px;gap:4px;margin-bottom:48px;
+  box-shadow:var(--shadow-sm);
+}
+.tab-btn{
+  font-family:var(--F2);font-size:.85rem;font-weight:700;
+  padding:10px 28px;border-radius:9px;
+  color:var(--muted);transition:all .25s;
+}
+.tab-btn.active{background:var(--navy);color:#fff;box-shadow:var(--shadow-sm);}
+.tab-btn:not(.active):hover{color:var(--navy);background:var(--silk-1);}
+.tab-panel{display:none;}
+.tab-panel.active{display:block;}
+
+/* Profile Grid — auto-fill căn lề chuẩn */
+.profile-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(185px,1fr));
+  gap:20px;
+  /* Đảm bảo không bị căn lề sai bằng align-items */
+  align-items:start;
+}
+
+.p-card{
+  background:#fff;border:1px solid var(--line);
+  border-radius:16px;padding:28px 18px 22px;
+  text-align:center;
+  transition:box-shadow .3s var(--ease),transform .3s var(--ease),border-color .3s;
+  cursor:default;
+}
+.p-card:hover{
+  box-shadow:var(--shadow-md);transform:translateY(-5px);
+  border-color:rgba(74,144,217,.3);
+}
+
+/* Avatar wrapper */
+.p-avatar-wrap{
+  width:80px;height:80px;border-radius:50%;
+  margin:0 auto 14px;position:relative;
+  flex-shrink:0;
+}
+.p-avatar{
+  width:80px;height:80px;border-radius:50%;
+  object-fit:cover;border:2.5px solid var(--line);
+  background:linear-gradient(135deg,var(--silk-1),var(--silk-3));
+  font-size:2rem;line-height:80px;text-align:center;
+  display:flex;align-items:center;justify-content:center;
+  transition:border-color .3s;
+}
+.p-card:hover .p-avatar{border-color:var(--blue);}
+
+/* Vòng hologram quanh avatar */
+.p-avatar-ring{
+  position:absolute;inset:-5px;border-radius:50%;
+  background:conic-gradient(from 0deg,#ff9de2,#ffb347,#ffe066,#9effd8,#a0cfff,#d0abff,#ff9de2);
+  opacity:0;z-index:-1;
+  transition:opacity .3s;animation:ring-spin 3s linear infinite paused;
+}
+.p-card:hover .p-avatar-ring{opacity:.7;animation-play-state:running;}
+@keyframes ring-spin{to{transform:rotate(360deg);}}
+
+.p-name{
+  font-family:var(--F1);font-size:.95rem;font-weight:700;
+  color:var(--navy);margin-bottom:5px;line-height:1.3;
+}
+.p-role{
+  font-size:.66rem;font-weight:700;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--blue);margin-bottom:10px;
+}
+.p-divider{width:28px;height:1px;background:var(--line);margin:8px auto;}
+.p-quote{
+  font-family:var(--F1);font-style:italic;
+  font-size:.78rem;color:var(--muted);line-height:1.55;
+}
+
+/* Special badge cho Lớp trưởng / Bí thư */
+.p-badge{
+  display:inline-block;padding:3px 10px;border-radius:20px;
+  font-size:.6rem;font-weight:700;letter-spacing:.08em;
+  text-transform:uppercase;margin-top:6px;
+}
+.badge-lt{background:linear-gradient(135deg,#ffe066,#ffb347);color:var(--navy);}
+.badge-bt{background:linear-gradient(135deg,#a0cfff,#d0abff);color:var(--navy-soft);}
+
+/* ════════════════════════════════════════════════════════════
+   GALLERY (giữ chỗ)
+════════════════════════════════════════════════════════════ */
+#gallery{padding:100px 0;background:#fff;}
+.gallery-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+}
+.g-item{position:relative;border-radius:10px;overflow:hidden;}
+.g-item img{
+  width:100%;aspect-ratio:1;object-fit:cover;
+  background:linear-gradient(135deg,var(--silk-1),var(--silk-3));
+  display:block;transition:transform .5s var(--ease),filter .5s;
+}
+.g-item:hover img{transform:scale(1.06);filter:brightness(.95);}
+.g-item.wide{grid-column:span 2;}
+.g-item.tall{grid-row:span 2;}
+.g-cap{
+  position:absolute;bottom:0;left:0;right:0;
+  padding:28px 14px 12px;
+  background:linear-gradient(to top,rgba(13,27,42,.55),transparent);
+  color:#fff;font-size:.75rem;letter-spacing:.04em;
+  opacity:0;transform:translateY(4px);
+  transition:opacity .3s,transform .3s;
+}
+.g-item:hover .g-cap{opacity:1;transform:translateY(0);}
+
+/* ════════════════════════════════════════════════════════════
+   CHILL ZONE OVERLAY
+════════════════════════════════════════════════════════════ */
+#chill{
+  position:fixed;inset:0;z-index:1000;
+  display:none;opacity:0;
+  transition:opacity .5s var(--ease);
+  flex-direction:column;
+}
+#chill.open{display:flex;opacity:1;}
+
+/* Slideshow bg */
+.c-slide{
+  position:absolute;inset:0;
+  background-size:cover;background-position:center;
+  opacity:0;transition:opacity 1.5s ease;
+}
+.c-slide.active{opacity:1;}
+.c-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    135deg, 
+    rgba(255, 255, 255, 0.1) 0%,   /* Giảm màng tối phía trên */
+    rgba(13, 27, 42, 0.15) 50%,    /* Tối rất nhẹ ở giữa để vẫn đọc được chữ trắng */
+    rgba(215, 239, 255, 0.2) 100%  /* Pha chút sắc xanh tơ tằm sáng */
+  );
+  backdrop-filter: brightness(1.09); /* Kéo độ sáng của ảnh nền lên 109% */
+}
+/* UI layer */
+.c-ui{
+  position:relative;z-index:2;
+  width:100%;height:100%;
+  display:grid;
+  grid-template-rows:60px 1fr 60px;
+  grid-template-columns:1fr 280px;
+  gap:0;padding:24px 32px;
+}
+
+/* Header bar */
+.c-header{
+  grid-column:1/3;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.c-exit{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:9px 20px;
+  background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);
+  border-radius:10px;color:#fff;font-size:.8rem;font-weight:700;
+  letter-spacing:.05em;backdrop-filter:blur(8px);
+  transition:background .25s,transform .2s;
+}
+.c-exit:hover{background:rgba(255,255,255,.25);transform:translateX(-2px);}
+.c-title-holo{font-family:var(--F1);font-size:1.1rem;font-weight:700;}
+
+/* Quote center */
+.c-quote-wrap{
+  display:flex;flex-direction:column;
+  justify-content:center;padding:20px 0 20px 0;
+}
+.c-quote-text{
+  font-family:var(--F1);
+  font-size:clamp(1.3rem,3.5vw,2.2rem);
+  font-style:italic;font-weight:500;
+  color:#fff;line-height:1.45;margin-bottom:16px;
+  text-shadow:0 2px 20px rgba(0,0,0,.25);
+  transition:opacity .6s,transform .6s;
+}
+.c-quote-text.fade-out,.c-quote-author.fade-out{opacity:0;transform:translateY(8px);}
+.c-quote-author{font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.65);transition:opacity .6s;}
+.c-bg-label{
+  display:inline-block;margin-top:20px;
+  padding:5px 14px;border-radius:20px;
+  background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);
+  font-size:.7rem;color:rgba(255,255,255,.75);backdrop-filter:blur(6px);
+}
+
+/* Right column */
+.c-right{
+  grid-column:2;grid-row:2;
+  display:flex;flex-direction:column;gap:16px;
+  overflow-y:auto;padding-left:20px;
+}
+
+/* Pomodoro card */
+.c-card{
+  background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);
+  border-radius:18px;padding:20px 22px;backdrop-filter:blur(12px);
+}
+.c-card-title{
+  font-size:.63rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
+  color:rgba(255,255,255,.65);margin-bottom:14px;
+}
+
+/* Pomodoro ring SVG */
+.pom-ring-wrap{position:relative;width:100px;height:100px;margin:0 auto 12px;}
+.pom-ring-wrap svg{transform:rotate(-90deg);}
+.r-bg{stroke:rgba(255,255,255,.15);}
+.r-fill{stroke:rgba(255,255,255,.85);stroke-linecap:round;transition:stroke-dashoffset .8s ease;}
+.pom-center{
+  position:absolute;inset:0;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+}
+.pom-min{font-family:var(--F1);font-size:1.8rem;font-weight:700;color:#fff;line-height:1;}
+.pom-sec{font-size:.82rem;color:rgba(255,255,255,.6);}
+.pom-mode-label{text-align:center;font-size:.68rem;color:rgba(255,255,255,.6);margin-bottom:12px;}
+.pom-btns{display:flex;gap:8px;justify-content:center;}
+.pom-btn{padding:7px 16px;border-radius:8px;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.04em;transition:all .22s;}
+.pom-start{background:#fff;color:var(--navy);}
+.pom-start:hover{background:var(--silk-1);transform:scale(1.04);}
+.pom-reset{background:transparent;color:rgba(255,255,255,.65);border:1px solid rgba(255,255,255,.2);}
+.pom-reset:hover{background:rgba(255,255,255,.1);color:#fff;}
+
+/* Soundboard */
+.snd-row{display:flex;align-items:center;gap:10px;margin-bottom:12px;}
+.snd-row:last-child{margin-bottom:0;}
+.snd-toggle{
+  width:32px;height:32px;border-radius:9px;
+  background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);
+  display:flex;align-items:center;justify-content:center;
+  font-size:.95rem;flex-shrink:0;transition:background .22s,transform .2s;
+}
+.snd-toggle.on{background:rgba(255,255,255,.25);border-color:rgba(255,255,255,.45);}
+.snd-toggle:hover{transform:scale(1.1);}
+.snd-name{font-size:.76rem;color:rgba(255,255,255,.8);flex:1;white-space:nowrap;}
+.snd-vol{
+  width:64px;-webkit-appearance:none;appearance:none;
+  height:3px;border-radius:2px;background:rgba(255,255,255,.2);
+  outline:none;cursor:pointer;
+}
+.snd-vol::-webkit-slider-thumb{-webkit-appearance:none;width:11px;height:11px;border-radius:50%;background:#fff;cursor:pointer;}
+
+/* Footer chill */
+.c-footer{
+  grid-column:1/3;
+  display:flex;align-items:center;justify-content:space-between;
+  border-top:1px solid rgba(255,255,255,.1);padding-top:14px;
+}
+.c-dots{display:flex;gap:7px;}
+.c-dot{
+  width:6px;height:6px;border-radius:50%;
+  background:rgba(255,255,255,.3);border:1px solid rgba(255,255,255,.4);
+  cursor:pointer;transition:all .25s;
+}
+.c-dot.active{background:#fff;transform:scale(1.4);}
+.c-footer-brand{font-family:var(--F1);font-size:.82rem;font-style:italic;color:rgba(255,255,255,.45);}
+
+/* ════════════════════════════════════════════════════════════
+   FOOTER CHÍNH
+════════════════════════════════════════════════════════════ */
+#footer{
+  padding:60px 0 40px;
+  border-top:1px solid var(--line);
+  background:var(--navy);
+}
+.footer-inner{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:32px;}
+.footer-brand{font-family:var(--F1);font-size:1.5rem;font-weight:700;color:#fff;margin-bottom:8px;}
+.footer-sub{font-size:.82rem;color:rgba(255,255,255,.45);line-height:1.75;}
+.footer-quote{
+  font-family:var(--F1);font-style:italic;font-size:1rem;
+  color:rgba(255,255,255,.6);max-width:320px;line-height:1.65;text-align:right;
+}
+.footer-copy{text-align:center;font-size:.72rem;color:rgba(255,255,255,.3);margin-top:40px;}
+
+/* ════════════════════════════════════════════════════════════
+   RESPONSIVE
+════════════════════════════════════════════════════════════ */
+@media(max-width:960px){
+  .gallery-grid{grid-template-columns:repeat(2,1fr);}
+  .g-item.tall{grid-row:span 1;}
+  .c-ui{grid-template-columns:1fr;grid-template-rows:60px auto 1fr 60px;}
+  .c-right{grid-column:1;grid-row:2;flex-direction:row;flex-wrap:wrap;padding-left:0;margin-top:10px;}
+  .c-card{flex:1 1 calc(50% - 8px);min-width:200px;}
+  .c-quote-wrap{grid-row:3;}
+  .c-footer{grid-column:1;}
+}
+@media(max-width:768px){
+  .wrap{padding:0 18px;}
+  .nav-links{
+    display:none;position:fixed;top:68px;left:0;right:0;
+    background:rgba(248,246,241,.97);backdrop-filter:blur(20px);
+    flex-direction:column;align-items:stretch;
+    padding:12px 18px 18px;border-bottom:1px solid var(--line);gap:2px;
+  }
+  .nav-links.open{display:flex;}
+  .nav-links a,.nav-links button{width:100%;padding:12px 16px;font-size:.95rem;text-align:left;}
+  .nav-toggle{display:flex;}
+  .hero-countdown{flex-wrap:wrap;}
+  .cd-blk{padding:12px 16px;}
+  .player-wrap{padding:20px 18px;max-width:100%;}
+  .profile-grid{grid-template-columns:repeat(2,1fr);gap:12px;}
+  .gallery-grid{grid-template-columns:repeat(2,1fr);}
+  .g-item.wide{grid-column:span 1;}
+  .c-ui{padding:16px 18px;}
+  .c-right{flex-direction:column;}
+  .c-card{flex:1 1 100%;}
+  .footer-inner{flex-direction:column;}
+  .footer-quote{text-align:left;}
+}
+@media(max-width:400px){
+  .profile-grid{grid-template-columns:1fr 1fr;}
+  .p-card{padding:18px 10px 16px;}
+  .p-avatar-wrap,.p-avatar{width:60px;height:60px;line-height:60px;}
+  .p-name{font-size:.82rem;}
+}
+</style>
+</head>
+
+<body>
+<!-- ═══════════════════════════════════
+     AUDIO ELEMENTS
+     ► Thay src="" bằng đường dẫn file nhạc thật
+═══════════════════════════════════ -->
+<!--
+  ► NHẠC NỀN HERO — 3 bài, đặt file vào cùng thư mục hoặc dùng link URL
+  Ví dụ: <source src="nhac1.mp3" type="audio/mpeg"/>
+-->
+<audio id="aud-0" preload="none"><source src="nhac1.mp3" type="audio/mpeg"/></audio>
+<audio id="aud-1" preload="none"><source src="nhac2.mp3" type="audio/mpeg"/></audio>
+<audio id="aud-2" preload="none"><source src="nhac3.mp3" type="audio/mpeg"/></audio>
+
+<!-- Chill Zone sounds -->
+<audio id="snd-lofi"  loop preload="none"><source src="lofi.mp3"  type="audio/mpeg"/></audio>
+<audio id="snd-rain"  loop preload="none"><source src="rain.mp3"  type="audio/mpeg"/></audio>
+<audio id="snd-birds" loop preload="none"><source src="birds.mp3" type="audio/mpeg"/></audio>
+<audio id="snd-alarm" preload="auto">
+  <source src="https://cdn.pixabay.com/audio/2022/03/10/audio_c97669d66a.mp3" type="audio/mpeg">
+</audio>
+
+<!-- ═══════════════════════════════════
+     NAVIGATION
+═══════════════════════════════════ -->
+<nav id="nav">
+  <div class="wrap nav-inner">
+    <!-- Brand + Logo hover swap -->
+    <a href="#" class="nav-brand">
+      <div class="nav-brand-logo">
+        <!-- ► Thay src bằng logo1.png và logo2.png thật -->
+        <img class="lg1" src="logo1.png" alt="12B11"
+             onerror="this.parentElement.style.display='none'"/>
+        <img class="lg2" src="logo2.png" alt="12B11"
+             onerror="this.style.display='none'"/>
+      </div>
+      <div>
+        <div class="nav-brand-text holo">12B11</div>
+       <div class="nav-brand-sub holo">Kỷ Yếu 2023–2026</div>
+      </div>
+    </a>
+
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#hero">Trang chủ</a></li>
+      <li><a href="#gallery">Hình ảnh</a></li>
+      <li><a href="#profiles">Hồ sơ</a></li>
+      
+      <li>
+        <a href="#documents" class="nav-doc-wrap">
+          <div class="nav-doc-btn holo">Tài liệu</div>
+        </a>
+      </li>
+      
+      <li><button class="nav-chill" id="btn-open-chill">✦ Góc Yên Tĩnh</button></li>
+    </ul>
+
+    <button class="nav-toggle" id="nav-toggle" aria-label="Menu">
+      <span/><span/><span/>
+    </button>
+  </div>
+</nav>
+
+
+<!-- ═══════════════════════════════════
+     HERO — City Night Slideshow + Spotify Player
+═══════════════════════════════════ -->
+<section id="hero">
+  <div class="hero-slide active" id="hs-0"></div>
+  <div class="hero-slide" id="hs-1"></div>
+  <div class="hero-slide" id="hs-2"></div>
+  <div class="hero-slide" id="hs-3"></div>
+  <div class="hero-slide" id="hs-4"></div>
+  <div class="hero-slide" id="hs-5"></div>
+  <div class="hero-slide" id="hs-6"></div>
+  <div class="hero-slide" id="hs-7"></div>
+  <div class="hero-slide" id="hs-8"></div>
+  <div class="hero-slide" id="hs-9"></div>
+  <div class="hero-slide" id="hs-10"></div>
+  <div class="hero-slide" id="hs-11"></div>
+  <div class="hero-slide" id="hs-12"></div>
+  <div class="hero-slide" id="hs-13"></div>
+  <div class="hero-slide" id="hs-14"></div>
+  
+  <div class="hero-overlay"></div>
+
+  <div class="hero-content">
+    <!-- Year tag -->
+    <div class="hero-year-tag reveal">
+      <span></span>THPT Phú Bài · 2023 – 2026<span></span>
+    </div>
+
+    <!-- Tên lớp hologram -->
+    <div class="hero-class-name reveal rv1">12B11</div>
+
+    <!-- Slogan hologram -->
+    <p class="hero-tagline reveal rv2">
+      <span class="holo" style="font-size:1.1em;">"Causing Trouble Everywhere"</span><br/>
+      — nhưng mãi mãi yêu thương nhau —
+    </p>
+
+    <!-- ── SPOTIFY PLAYER UI ── -->
+    <div class="player-wrap reveal rv3" id="player">
+      <div class="player-top">
+        <!-- ► src="cover.jpg" = ảnh bìa bài hát -->
+        <img class="player-cover" id="p-cover" src="cover.jpg" alt=""
+             onerror="this.style.background='linear-gradient(135deg,#a0cfff,#d0abff)'"/>
+        <div class="player-meta">
+          <div class="player-title" id="p-title">Nhạc 1</div>
+          <div class="player-artist">12B11 · 2023–2026</div>
+          <!-- Track chips -->
+          <div class="player-tracklist" id="p-tracklist">
+            <!-- JS tạo tự động -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Progress bar -->
+      <div class="player-progress-wrap">
+        <div class="player-progress-bar" id="p-bar">
+          <div class="player-progress-fill" id="p-fill"></div>
+        </div>
+        <div class="player-time">
+          <span id="p-cur">0:00</span>
+          <span id="p-dur">0:00</span>
+        </div>
+      </div>
+
+      <!-- Controls -->
+      <div class="player-controls">
+        <button class="ctrl-btn" id="p-prev" title="Bài trước">⏮</button>
+        <button class="ctrl-btn ctrl-play" id="p-play" title="Phát">▶</button>
+        <button class="ctrl-btn" id="p-next" title="Bài sau">⏭</button>
+      </div>
+
+      <!-- Volume -->
+      <div class="player-vol">
+        <span class="vol-icon">🔈</span>
+        <input class="vol-slider" type="range" id="p-vol"
+               min="0" max="1" step="0.05" value="0.75"/>
+        <span class="vol-icon">🔊</span>
+      </div>
+    </div><!-- /player-wrap -->
+
+    <!-- Countdown -->
+    <div class="hero-countdown reveal rv4">
+      <div class="cd-blk"><span class="cd-num" id="cd-d">00</span><span class="cd-lbl">Ngày</span></div>
+      <div class="cd-blk"><span class="cd-num" id="cd-h">00</span><span class="cd-lbl">Giờ</span></div>
+      <div class="cd-blk"><span class="cd-num" id="cd-m">00</span><span class="cd-lbl">Phút</span></div>
+      <div class="cd-blk"><span class="cd-num" id="cd-s">00</span><span class="cd-lbl">Giây</span></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════
+     GALLERY
+═══════════════════════════════════ -->
+<section id="gallery">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Album Ảnh · 2023–2026</span>
+      <h2 class="s-title holo" style="-webkit-text-fill-color:transparent;">Những Khoảnh Khắc Không Phai</h2>
+      <p class="s-lead">Mỗi tấm ảnh là một mảnh ký ức — những buổi học, tiếng cười rộn ràng, ngày tháng sẽ theo chúng ta mãi mãi.</p>
+    </div>
+
+    <!--
+      ► GALLERY GRID — Thay src="anh1.jpg" → "anh20.jpg" bằng ảnh thật
+         .wide = 2 cột ngang  |  .tall = 2 hàng dọc
+    -->
+    <div class="gallery-grid">
+      <div class="g-item wide tall reveal"><img src="anh1.jpg" alt="Ảnh 1" onerror="this.style.background='linear-gradient(135deg,#D7EFFF,#EEF4FF)';this.removeAttribute('src')"/><div class="g-cap">12B11 · Những ngày đầu ✦</div></div>
+      <div class="g-item reveal rv1"><img src="anh2.jpg" alt="Ảnh 2" onerror="this.style.background='linear-gradient(135deg,#EEF4FF,#F0F7FF)';this.removeAttribute('src')"/></div>
+      <div class="g-item reveal rv2"><img src="anh3.jpg" alt="Ảnh 3" onerror="this.style.background='linear-gradient(135deg,#F0F7FF,#E8F0FE)';this.removeAttribute('src')"/></div>
+      <div class="g-item reveal rv1"><img src="anh4.jpg" alt="Ảnh 4" onerror="this.style.background='linear-gradient(135deg,#E8F0FE,#D7EFFF)';this.removeAttribute('src')"/></div>
+      <div class="g-item reveal rv2"><img src="anh5.jpg" alt="Ảnh 5" onerror="this.style.background='linear-gradient(135deg,#D7EFFF,#EEF4FF)';this.removeAttribute('src')"/></div>
+      <div class="g-item wide reveal"><img src="anh6.jpg" alt="Ảnh 6" onerror="this.style.background='linear-gradient(135deg,#A8D5F5,#D7EFFF)';this.removeAttribute('src')"/><div class="g-cap">Cả lớp cùng nhau ✦</div></div>
+      <div class="g-item reveal rv1"><img src="anh7.jpg" alt="Ảnh 7" onerror="this.style.background='linear-gradient(135deg,#EEF4FF,#A8D5F5)';this.removeAttribute('src')"/></div>
+      <div class="g-item reveal rv2"><img src="anh8.jpg" alt="Ảnh 8" onerror="this.style.background='linear-gradient(135deg,#F0F7FF,#EEF4FF)';this.removeAttribute('src')"/></div>
+      <div class="g-item tall reveal rv3"><img src="anh9.jpg" alt="Ảnh 9" onerror="this.style.background='linear-gradient(135deg,#D7EFFF,#F0F7FF)';this.removeAttribute('src')"/><div class="g-cap">12B11 mãi trong tim</div></div>
+      <div class="g-item reveal"><img src="anh10.jpg" alt="Ảnh 10" onerror="this.style.background='linear-gradient(135deg,#A8D5F5,#EEF4FF)';this.removeAttribute('src')"/></div>
+      <div class="g-item wide reveal rv1"><img src="anh11.jpg" alt="Ảnh 11" onerror="this.style.background='linear-gradient(135deg,#EEF4FF,#D7EFFF)';this.removeAttribute('src')"/><div class="g-cap">Hẹn gặp ở cổng Đại học ✦</div></div>
+      <div class="g-item reveal rv2"><img src="anh12.jpg" alt="Ảnh 12" onerror="this.style.background='linear-gradient(135deg,#F0F7FF,#A8D5F5)';this.removeAttribute('src')"/></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════
+     PROFILES
+═══════════════════════════════════ -->
+<section id="profiles" class="silk-bg" style="padding:100px 0;">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Những Người Đồng Hành</span>
+      <h2 class="s-title">Giáo Viên &amp; <em style="font-style:italic;">Học Sinh</em></h2>
+      <p class="s-lead">Những khuôn mặt tạo nên 12B11 — thầy cô truyền lửa và 38 cá nhân "gây rối" đáng yêu nhất.</p>
+    </div>
+
+    <!-- Tab bar -->
+    <div style="text-align:center;margin-bottom:0;" class="reveal">
+      <div class="tab-bar">
+        <button class="tab-btn active" data-tab="teachers">👩‍🏫 Giáo Viên (8)</button>
+        <button class="tab-btn"        data-tab="students">🎓 Học Sinh (38)</button>
+      </div>
+    </div>
+
+    <!-- Tab: Giáo viên — 7 cô + 1 thầy -->
+    <div class="tab-panel active" id="tab-teachers">
+      <div class="profile-grid" id="grid-teachers">
+        <!-- JS sinh ra -->
+      </div>
+    </div>
+
+    <!-- Tab: Học sinh — 38 em -->
+    <div class="tab-panel" id="tab-students">
+      <div class="profile-grid" id="grid-students">
+        <!-- JS sinh ra -->
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════
+     FOOTER
+═══════════════════════════════════ -->
+<section id="documents" style="padding: 100px 0; background: var(--silk-2);">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Thư Viện Học Tập</span>
+      <h2 class="s-title holo">Kho Tài Liệu 12B11</h2>
+      <p class="s-lead">Nơi Thầy Cô chia sẻ đề cương, đề thi thử và bí kíp vượt vũ môn 2026.</p>
+    </div>
+
+    <div class="profile-grid">
+      <div class="p-card reveal rv1">
+        <div style="font-size: 3rem; margin-bottom: 15px;">📝</div>
+        <div class="p-name">Đề Cương Ôn Tập Học Kỳ II</div>
+        <div class="p-role">Môn: Toán - Cô Thu</div>
+        <div class="p-divider"></div>
+        <a href="#" class="p-badge badge-lt" style="display:block; text-align:center;">📥 Tải về ngay</a>
+      </div>
+
+      <div class="p-card reveal rv2">
+        <div style="font-size: 3rem; margin-bottom: 15px;">📚</div>
+        <div class="p-name">Tuyển Tập Đề Văn Trọng Tâm</div>
+        <div class="p-role">Môn: Ngữ Văn - Cô Hằng</div>
+        <div class="p-divider"></div>
+        <a href="#" class="p-badge badge-bt" style="display:block; text-align:center;">📥 Tải về ngay</a>
+      </div>
+      
+      </div>
+  </div>
+</section>
+<footer id="footer">
+  <div class="wrap">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand holo">12B11</div>
+        <div class="footer-sub">
+          THPT Phú Bài · Thành Phố Huế<br/>
+          Niên khóa 2023 – 2026<br/>
+          Chủ nhiệm: Cô Nguyễn Thị Hoài Thu
+        </div>
+      </div>
+      <div class="footer-quote">
+        "Causing trouble everywhere —<br/>nhưng mãi mãi yêu thương nhau."
+      </div>
+    </div>
+    <hr style="border:none;border-top:1px solid rgba(255,255,255,.1);margin:32px 0 16px;"/>
+    <div class="footer-copy">© 2026 Tập thể lớp 12B11 · Thiết kế với ♡ để nhớ mãi về nhau</div>
+  </div>
+</footer>
+
+
+<!-- ═══════════════════════════════════
+     CHILL ZONE OVERLAY
+═══════════════════════════════════ -->
+<div id="chill" role="dialog" aria-modal="true">
+  <!--
+    ► CHILL ZONE SLIDESHOW — Thay URL ảnh phong cảnh
+    Gợi ý: Unsplash - lofi, ghibli, rain, nature...
+  -->
+  <div class="c-slide active" id="cs-0"></div>
+  <div class="c-slide"        id="cs-1"></div>
+  <div class="c-slide"        id="cs-2"></div>
+  <div class="c-slide"        id="cs-3"></div>
+  <div class="c-slide"        id="cs-4"></div>
+  <div class="c-slide"        id="cs-5"></div>
+  <div class="c-overlay"></div>
+
+  <div class="c-ui">
+    <!-- Header -->
+    <div class="c-header">
+      <button class="c-exit" id="btn-close-chill">← Quay lại Kỷ Yếu</button>
+      <span class="c-title-holo holo">✦ Góc Yên Tĩnh · 12B11</span>
+      <div></div>
+    </div>
+
+    <!-- Quote -->
+    <div class="c-quote-wrap">
+      <p  class="c-quote-text"   id="c-quote-text">—</p>
+      <span class="c-quote-author" id="c-quote-author"></span>
+      <span class="c-bg-label"   id="c-bg-label"></span>
+    </div>
+
+    <!-- Right: Pomodoro + Soundboard -->
+    <div class="c-right">
+      <!-- POMODORO -->
+      <div class="c-card">
+        <div class="c-card-title">⏳ Pomodoro Timer</div>
+        <div class="pom-ring-wrap">
+          <svg width="100" height="100" viewBox="0 0 100 100">
+            <circle class="r-bg"   cx="50" cy="50" r="44" fill="none" stroke-width="5"/>
+            <circle class="r-fill" cx="50" cy="50" r="44" fill="none" stroke-width="5"
+                    id="pom-ring"
+                    stroke-dasharray="276.5" stroke-dashoffset="0"/>
+          </svg>
+          <div class="pom-center">
+            <span class="pom-min" id="pom-min">25</span>
+            <span class="pom-sec" id="pom-sec">:00</span>
+          </div>
+        </div>
+        <div class="pom-mode-label" id="pom-status">Tập trung làm việc 🎯</div>
+        <div class="pom-btns">
+          <button class="pom-btn pom-start" id="pom-toggle">Bắt đầu</button>
+          <button class="pom-btn pom-reset" id="pom-reset">Reset</button>
+        </div>
+      </div>
+
+      <!-- SOUNDBOARD -->
+      <div class="c-card">
+        <div class="c-card-title">🎵 Bảng Âm Thanh</div>
+        <div class="snd-row">
+          <button class="snd-toggle" data-snd="snd-lofi"  title="Lofi">🎵</button>
+          <span   class="snd-name">Nhạc Lofi Study</span>
+          <input  class="snd-vol" type="range" min="0" max="1" step="0.05" value="0.5" data-snd="snd-lofi"/>
+        </div>
+        <div class="snd-row">
+          <button class="snd-toggle" data-snd="snd-rain"  title="Mưa">🌧</button>
+          <span   class="snd-name">Tiếng Mưa Rơi</span>
+          <input  class="snd-vol" type="range" min="0" max="1" step="0.05" value="0.5" data-snd="snd-rain"/>
+        </div>
+        <div class="snd-row">
+          <button class="snd-toggle" data-snd="snd-birds" title="Chim">🐦</button>
+          <span   class="snd-name">Tiếng Chim Hót</span>
+          <input  class="snd-vol" type="range" min="0" max="1" step="0.05" value="0.5" data-snd="snd-birds"/>
+        </div>
+      </div>
+    </div><!-- /c-right -->
+
+    <!-- Footer -->
+    <div class="c-footer">
+      <span class="c-footer-brand">12B11 · Góc Yên Tĩnh</span>
+      <div class="c-dots" id="c-dots"></div>
+    </div>
+  </div><!-- /c-ui -->
+</div><!-- /chill -->
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     JAVASCRIPT — Vanilla JS, không thư viện ngoài
+═══════════════════════════════════════════════════════════════ -->
+<script>
+'use strict';
+
+/* ── HELPERS ── */
+const $ = (s,c=document) => c.querySelector(s);
+const $$ = (s,c=document) => [...c.querySelectorAll(s)];
+const pad = n => String(n).padStart(2,'0');
+
+
+/* ══════════════════════════════════════════════════════════
+   1. NAV — scroll shadow + mobile toggle
+══════════════════════════════════════════════════════════ */
+(function(){
+  const nav = $('#nav'), toggle = $('#nav-toggle'), links = $('#nav-links');
+  window.addEventListener('scroll', ()=> nav.classList.toggle('scrolled', scrollY>10), {passive:true});
+
+  toggle.addEventListener('click', ()=>{
+    const open = links.classList.toggle('open');
+    const bars = $$('span',toggle);
+    if(open){
+      bars[0].style.transform='translateY(7px) rotate(45deg)';
+      bars[1].style.opacity='0';
+      bars[2].style.transform='translateY(-7px) rotate(-45deg)';
+    } else { bars.forEach(b=>{b.style.transform='';b.style.opacity='';}) }
+  });
+
+  $$('a,button',links).forEach(el => el.addEventListener('click', ()=>{
+    links.classList.remove('open');
+    $$('span',toggle).forEach(b=>{b.style.transform='';b.style.opacity='';});
+  }));
+})();
+
+
+/* ══════════════════════════════════════════════════════════
+   2. SCROLL REVEAL — IntersectionObserver
+══════════════════════════════════════════════════════════ */
+(function(){
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); obs.unobserve(e.target); } });
+  }, { threshold:.1, rootMargin:'0px 0px -40px 0px' });
+  $$('.reveal').forEach(el => obs.observe(el));
+})();
+
+
+/* ══════════════════════════════════════════════════════════
+   3. HERO SLIDESHOW — Thành phố đêm, đổi sau 5 phút
+══════════════════════════════════════════════════════════ */
+(function(){
+ /*
+    ► MẢNG 15 ẢNH HERO (TRANG CHỦ) — VÒNG QUANH THẾ GIỚI
+    Slideshow sẽ tự động chuyển ảnh sau mỗi 5 phút (300,000ms).
+  */
+  const HERO_IMAGES = [
+    /* 1. Việt Nam - Hà Nội (Cầu Thê Húc / Hồ Gươm) */
+    'https://images.unsplash.com/photo-1599708153386-62bf3f035c78?w=1600&q=80',
+    /* 2. Việt Nam - Đà Nẵng (Cầu Vàng) */
+    'https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?w=1600&q=80',
+    /* 3. Việt Nam - Huế (Đại Nội / Sông Hương) */
+    'https://images.unsplash.com/photo-1583417657208-de7fb4119d67?w=1600&q=80',
+    /* 4. Việt Nam - TP Hồ Chí Minh (Landmark 81 / Bitexco đêm) */
+    'https://images.unsplash.com/photo-1583417319070-4a69db38a482?w=1600&q=80',
+    /* 5. Việt Nam - Đà Lạt (Sương mù / Đồi thông) */
+    'https://images.unsplash.com/photo-1596710104495-9273c683709b?w=1600&q=80',
+    /* 6. Singapore (Marina Bay Sands / Gardens by the Bay) */
+    'https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=1600&q=80',
+    /* 7. Hàn Quốc - Seoul (Tháp Namsan / Phố đêm) */
+    'https://images.unsplash.com/photo-1538485399081-7191377e8241?w=1600&q=80',
+    /* 8. Trung Quốc - Thượng Hải / Bắc Kinh (Phố cổ & Hiện đại) */
+    'https://images.unsplash.com/photo-1508804185872-d7bad800f431?w=1600&q=80',
+    /* 9. Nhật Bản - Tokyo (Núi Phú Sĩ / Tháp Tokyo) */
+    'https://images.unsplash.com/photo-1503899036084-c55cdd92da26?w=1600&q=80',
+    /* 10. Nga - Moscow (Quảng trường Đỏ / Saint Basil) */
+    'https://images.unsplash.com/photo-1513326738677-b964603b136d?w=1600&q=80',
+    /* 11. Tây Ban Nha - Barcelona / Madrid */
+    'https://images.unsplash.com/photo-1539037116277-4db20889f2d4?w=1600&q=80',
+    /* 12. Pháp - Paris (Tháp Eiffel) */
+    'https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=1600&q=80',
+    /* 13. Vịnh Caribbean (Biển xanh / Cát trắng) */
+    'https://images.unsplash.com/photo-1519046904884-53103b34b206?w=1600&q=80',
+    /* 14. Úc - Sydney (Nhà hát Con Sò) */
+    'https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?w=1600&q=80',
+    /* 15. Canada - Rừng lá phong mùa thu */
+    'https://images.unsplash.com/photo-1507272931001-fc06c17e4f4d?w=1600&q=80'
+  ];
+  const slides = $$('.hero-slide');
+  // Gán background ngay khi JS chạy
+  slides.forEach((s,i) => {
+    if(HERO_IMAGES[i]) s.style.backgroundImage = `url('${HERO_IMAGES[i]}')`;
+  });
+
+  let cur = 0;
+  function nextSlide(){
+    slides[cur].classList.remove('active');
+    cur = (cur+1) % slides.length;
+    slides[cur].classList.add('active');
+  }
+  setInterval(nextSlide, 300000); // 5 phút
+})();
+
+
+/* ══════════════════════════════════════════════════════════
+   4. COUNTDOWN — Đến kỳ thi ĐH 11/06/2026
+══════════════════════════════════════════════════════════ */
+(function(){
+  const TARGET = new Date(2026,5,11,7,30,0).getTime();
+  const elD=$('#cd-d'), elH=$('#cd-h'), elM=$('#cd-m'), elS=$('#cd-s');
+
+  function flipEl(el, v){
+    if(!el||el.textContent===v) return;
+    el.classList.remove('flip'); void el.offsetWidth;
+    el.classList.add('flip'); el.textContent=v;
+  }
+  function tick(){
+    const diff = TARGET - Date.now();
+    if(diff<=0) return;
+    if(elD) elD.textContent = pad(Math.floor(diff/86400000));
+    if(elH) elH.textContent = pad(Math.floor(diff%86400000/3600000));
+    if(elM) elM.textContent = pad(Math.floor(diff%3600000/60000));
+    flipEl(elS, pad(Math.floor(diff%60000/1000)));
+  }
+  tick(); setInterval(tick,1000);
+})();
+
+
+/* ══════════════════════════════════════════════════════════
+   5. SPOTIFY-LIKE PLAYER
+══════════════════════════════════════════════════════════ */
+(function(){
+  /*
+    ► DANH SÁCH NHẠC — Thêm/sửa các bài hát tại đây
+    Mỗi track: { title, artist, src (đường dẫn file), cover (ảnh bìa) }
+  */
+  const TRACKS = [
+    { title: 'Nhạc 1', artist: '12B11 · 2026', src: 'nhac1.mp3', cover: 'cover1.jpg' },
+    { title: 'Nhạc 2', artist: '12B11 · 2026', src: 'nhac2.mp3', cover: 'cover2.jpg' },
+    { title: 'Nhạc 3', artist: '12B11 · 2026', src: 'nhac3.mp3', cover: 'cover3.jpg' },
+  ];
+
+  let curIdx   = 0;
+  let isPlaying= false;
+
+  // Lấy các audio element đã định nghĩa trong HTML
+  const audios = [document.getElementById('aud-0'),
+                  document.getElementById('aud-1'),
+                  document.getElementById('aud-2')];
+
+  const pCover  = $('#p-cover');
+  const pTitle  = $('#p-title');
+  const pPlay   = $('#p-play');
+  const pPrev   = $('#p-prev');
+  const pNext   = $('#p-next');
+  const pFill   = $('#p-fill');
+  const pBar    = $('#p-bar');
+  const pCur    = $('#p-cur');
+  const pDur    = $('#p-dur');
+  const pVol    = $('#p-vol');
+  const pList   = $('#p-tracklist');
+
+  // Tạo track chips
+  TRACKS.forEach((t,i) => {
+    const chip = document.createElement('button');
+    chip.className = 'track-chip' + (i===0?' active':'');
+    chip.textContent = t.title;
+    chip.dataset.idx = i;
+    chip.addEventListener('click', ()=>{ isPlaying=true; loadTrack(i); });
+    pList && pList.appendChild(chip);
+  });
+
+  function fmtTime(s){
+    if(isNaN(s)||s===Infinity) return '0:00';
+    return Math.floor(s/60)+':'+pad(Math.floor(s%60));
+  }
+
+  function loadTrack(idx, play=isPlaying){
+    // Dừng tất cả audio cũ
+    audios.forEach(a=>{ a.pause(); a.currentTime=0; });
+
+    curIdx = (idx+TRACKS.length)%TRACKS.length;
+    const t = TRACKS[curIdx];
+
+    // Cập nhật UI
+    if(pTitle)  pTitle.textContent  = t.title;
+    if(pCover){ pCover.src = t.cover || ''; pCover.onerror=()=>pCover.style.background='linear-gradient(135deg,#a0cfff,#d0abff)'; }
+    if(pFill)   pFill.style.width   = '0%';
+    if(pCur)    pCur.textContent    = '0:00';
+    if(pDur)    pDur.textContent    = '0:00';
+    pBar && (pBar.style.setProperty('--prog','0%'));
+
+    // Chip active
+    $$('.track-chip').forEach((c,i)=>c.classList.toggle('active',i===curIdx));
+
+    if(play) {
+      audios[curIdx].play().catch(()=>{});
+      if(pPlay) pPlay.textContent='⏸';
+      if(pCover) pCover.classList.add('playing');
+    }
+  }
+
+  function togglePlay(){
+    const aud = audios[curIdx];
+    if(isPlaying){
+      aud.pause(); isPlaying=false;
+      if(pPlay) pPlay.textContent='▶';
+      if(pCover) pCover.classList.remove('playing');
+    } else {
+      aud.play().catch(()=>{});
+      isPlaying=true;
+      if(pPlay) pPlay.textContent='⏸';
+      if(pCover) pCover.classList.add('playing');
+    }
+  }
+
+  // Cập nhật progress bar liên tục
+  audios.forEach((aud,i) => {
+    aud.addEventListener('timeupdate', ()=>{
+      if(i!==curIdx) return;
+      const pct = aud.duration ? (aud.currentTime/aud.duration)*100 : 0;
+      if(pFill) pFill.style.width = pct+'%';
+      if(pBar)  pBar.style.setProperty('--prog', pct+'%');
+      if(pCur)  pCur.textContent = fmtTime(aud.currentTime);
+      if(pDur && !isNaN(aud.duration)) pDur.textContent = fmtTime(aud.duration);
+    });
+    aud.addEventListener('ended', ()=> loadTrack(curIdx+1, true));
+  });
+
+  // Seek — click vào thanh tiến trình
+  pBar && pBar.addEventListener('click', e=>{
+    const aud = audios[curIdx];
+    if(!aud.duration) return;
+    const r = pBar.getBoundingClientRect();
+    aud.currentTime = ((e.clientX-r.left)/r.width) * aud.duration;
+  });
+
+  // Volume
+  pVol && pVol.addEventListener('input', ()=>{
+    audios.forEach(a=> a.volume=parseFloat(pVol.value));
+  });
+  // Set volume mặc định
+  audios.forEach(a=> a.volume = parseFloat(pVol ? pVol.value : 0.75));
+
+  pPlay && pPlay.addEventListener('click', togglePlay);
+  pPrev && pPrev.addEventListener('click', ()=> loadTrack(curIdx-1, isPlaying));
+  pNext && pNext.addEventListener('click', ()=> loadTrack(curIdx+1, isPlaying));
+
+  // Init track 0
+  loadTrack(0, false);
+})();
+
+
+/* ══════════════════════════════════════════════════════════
+   6. PROFILE TABS
+══════════════════════════════════════════════════════════ */
+(function(){
+  const btns = $$('.tab-btn'), panels = $$('.tab-panel');
+  btns.forEach(b => b.addEventListener('click', ()=>{
+    const target = b.dataset.tab;
+    btns.forEach(x=>x.classList.remove('active'));
+    b.classList.add('active');
+    panels.forEach(p=>{
+      p.classList.remove('active');
+      if(p.id===`tab-${target}`){ p.classList.add('active'); }
+    });
+  }));
+})();
+
+
+/* ══════════════════════════════════════════════════════════
+   7. SINH CARDS GIÁO VIÊN (8 người: 7 cô + 1 thầy)
+══════════════════════════════════════════════════════════ */
+(function(){
+  /*
+    ► DANH SÁCH GIÁO VIÊN — Thêm tên, môn, quote, ảnh thật vào đây
+    gender: 'f' = nữ (👩‍🏫) | 'm' = nam (👨‍🏫)
+  */
+  const TEACHERS = [
+    { name:'Mẹ Hoài Thu', subject:'Chủ nhiệm · Toán',   gender:'f', img:'gv1.jpg', quote:'"Các em là nỗi buồn lớn nhất của cô."' },
+    { name:'Mẹ Hằng ',      subject:'Ngữ văn',           gender:'f', img:'gv2.jpg', quote:'"Đứa nào không làm văn viết đơn khỏi đi thi  ."' },
+    { name:'Mẹ Bề ',      subject:'Tiếng Anh',          gender:'f', img:'gv3.jpg', quote:'"Study or scram! I’m literally speechless with you guys."' },
+    { name:'Mẹ Vinh',     subject:'Địa lý',             gender:'m', img:'gv4.jpg', quote:'"Học đi mẹ Thương."' },
+    { name:'Mẹ Vinh',      subject:'Hoá học',            gender:'f', img:'gv5.jpg', quote:'" Làm Sữa chua, ăn quá chua."' },
+    { name:'Thầy Đôn',      subject:'Sinh học',           gender:'f', img:'gv6.jpg', quote:'"Người thầy nhiều tóc nhất, dễ thương nhất."' },
+    { name:'Mẹ Thủy',      subject:'Lịch sử ',  gender:'f', img:'gv7.jpg', quote:'"Học bài đi mai kiểm tra nữa ."' },
+    { name:'Mẹ Lý ',      subject:'Giáo dục công dân',  gender:'f', img:'gv8.jpg', quote:'"Người Bay Thúi Rình Ý, Để Tau Ngưởi Coi."' },
+  ];
+
+  const grid = $('#grid-teachers');
+  if(!grid) return;
+
+  TEACHERS.forEach(t => {
+    const card = document.createElement('div');
+    card.className = 'p-card reveal';
+    const emo = t.gender==='f' ? '👩‍🏫' : '👨‍🏫';
+    card.innerHTML = `
+      <div class="p-avatar-wrap">
+        <div class="p-avatar-ring"></div>
+        <img class="p-avatar" src="${t.img}" alt="${t.name}"
+             onerror="this.outerHTML='<div class=\\'p-avatar\\'>${emo}</div>'"/>
+      </div>
+      <div class="p-name">${t.name}</div>
+      <div class="p-role">${t.subject}</div>
+      <div class="p-divider"></div>
+      <div class="p-quote">${t.quote}</div>
+    `;
+    grid.appendChild(card);
+  });
+
+  // Re-run reveal observer cho cards vừa tạo
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); obs.unobserve(e.target); } });
+  }, {threshold:.1});
+  $$('.p-card',grid).forEach(c=>obs.observe(c));
+})();
+
+
+/* ══════════════════════════════════════════════════════════
+   8. SINH CARDS HỌC SINH (38 em) — Dùng JS Loop
+══════════════════════════════════════════════════════════ */
+(function(){
+  /*
+    ► DANH SÁCH HỌC SINH 38 EM
+    Thay "Tên Học Sinh X" bằng tên thật, src bằng ảnh thật
+    Học sinh 1 = Lớp trưởng, học sinh 2 = Bí thư
+    Từ 3-38 = Thành viên
+
+    Cấu trúc mỗi entry: { name, img, quote }
+    img: để trống "" thì dùng emoji mặc định 🎓
+  */
+  const STUDENTS = [
+    /* 01 - Lớp trưởng */
+    { name:'Tên Học Sinh 1',  img:'hs1.jpg',  quote:'"Causing trouble everywhere since 2023."' },
+    /* 02 - Bí thư */
+    { name:'Tên Học Sinh 2',  img:'hs2.jpg',  quote:'"Đoàn kết là never chết."' },
+    /* 03–38 - Thành viên */
+    { name:'Tên Học Sinh 3',  img:'hs3.jpg',  quote:'"Ngủ là môn giỏi nhất của tôi."' },
+    { name:'Tên Học Sinh 4',  img:'hs4.jpg',  quote:'"Đỗ đại học rồi tính tiếp."' },
+    { name:'Tên Học Sinh 5',  img:'hs5.jpg',  quote:'"Sống để ăn, không phải ăn để sống."' },
+    { name:'Tên Học Sinh 6',  img:'hs6.jpg',  quote:'"3 năm cấp 3, ngàn ký ức không phai."' },
+    { name:'Tên Học Sinh 7',  img:'hs7.jpg',  quote:'"Hẹn gặp ở cổng trường đại học."' },
+    { name:'Tên Học Sinh 8',  img:'hs8.jpg',  quote:'"Nhân tài cá biệt 12B11."' },
+    { name:'Tên Học Sinh 9',  img:'hs9.jpg',  quote:'"Mãi mãi nhớ về 12B11."' },
+    { name:'Tên Học Sinh 10', img:'hs10.jpg', quote:'"Tốt nghiệp là chỉ là bước đầu."' },
+    { name:'Tên Học Sinh 11', img:'hs11.jpg', quote:'"Cố lên, mình làm được!"' },
+    { name:'Tên Học Sinh 12', img:'hs12.jpg', quote:'"Ký ức đẹp nhất là ngày ở lớp."' },
+    { name:'Tên Học Sinh 13', img:'hs13.jpg', quote:'"Cả lớp như một gia đình."' },
+    { name:'Tên Học Sinh 14', img:'hs14.jpg', quote:'"Học là việc của ngày mai."' },
+    { name:'Tên Học Sinh 15', img:'hs15.jpg', quote:'"Cảm ơn 12B11 vì tất cả."' },
+    { name:'Tên Học Sinh 16', img:'hs16.jpg', quote:'"Thanh xuân rực rỡ cùng nhau."' },
+    { name:'Tên Học Sinh 17', img:'hs17.jpg', quote:'"Mỗi ngày đến trường là một niềm vui."' },
+    { name:'Tên Học Sinh 18', img:'hs18.jpg', quote:'"Động vào là ăn cám!"' },
+    { name:'Tên Học Sinh 19', img:'hs19.jpg', quote:'"12B11 — số 2 là khiêm tốn."' },
+    { name:'Tên Học Sinh 20', img:'hs20.jpg', quote:'"Bạn bè là tài sản vô giá."' },
+    { name:'Tên Học Sinh 21', img:'hs21.jpg', quote:'"Cùng nhau vượt qua mọi thứ."' },
+    { name:'Tên Học Sinh 22', img:'hs22.jpg', quote:'"Giờ chơi là lúc tôi sống nhất."' },
+    { name:'Tên Học Sinh 23', img:'hs23.jpg', quote:'"Học gì không biết nhưng cười thì siêu."' },
+    { name:'Tên Học Sinh 24', img:'hs24.jpg', quote:'"Một ngày không gặp nhớ như cả năm."' },
+    { name:'Tên Học Sinh 25', img:'hs25.jpg', quote:'"Đề thi không làm được thì… nộp sớm."' },
+    { name:'Tên Học Sinh 26', img:'hs26.jpg', quote:'"12B11 là nhà."' },
+    { name:'Tên Học Sinh 27', img:'hs27.jpg', quote:'"Niên khóa đẹp nhất đời học sinh."' },
+    { name:'Tên Học Sinh 28', img:'hs28.jpg', quote:'"Cố gắng hết mình, kết quả sẽ đến."' },
+    { name:'Tên Học Sinh 29', img:'hs29.jpg', quote:'"Ước gì thời gian dừng lại ở đây."' },
+    { name:'Tên Học Sinh 30', img:'hs30.jpg', quote:'"Mình học để trở thành chính mình."' },
+    { name:'Tên Học Sinh 31', img:'hs31.jpg', quote:'"Dù đi đâu cũng nhớ về 12B11."' },
+    { name:'Tên Học Sinh 32', img:'hs32.jpg', quote:'"Lớp mình chaotic nhưng đáng yêu."' },
+    { name:'Tên Học Sinh 33', img:'hs33.jpg', quote:'"Cảm ơn cô Thu vì đã chịu đựng chúng em."' },
+    { name:'Tên Học Sinh 34', img:'hs34.jpg', quote:'"Thi xong rồi đi ăn bún bò cả lớp."' },
+    { name:'Tên Học Sinh 35', img:'hs35.jpg', quote:'"12B11 không ai là số 1, tất cả đều đặc biệt."' },
+    { name:'Tên Học Sinh 36', img:'hs36.jpg', quote:'"Kỳ thi 2026 — mình sẽ làm được!"' },
+    { name:'Tên Học Sinh 37', img:'hs37.jpg', quote:'"Thanh xuân không có lần thứ hai."' },
+    { name:'Tên Học Sinh 38', img:'hs38.jpg', quote:'"12B11 mãi trong trái tim tôi."' },
+  ];
+
+  const grid = $('#grid-students');
+  if(!grid) return;
+
+  // Xác định chức vụ
+  function getRole(i){
+    if(i===0) return { label:'Lớp Trưởng', badge:'badge-lt' };
+    if(i===1) return { label:'Bí Thư',     badge:'badge-bt' };
+    return      { label:'Thành Viên',    badge:null };
+  }
+
+  STUDENTS.forEach((s,i) => {
+    const role  = getRole(i);
+    const card  = document.createElement('div');
+    card.className = 'p-card reveal';
+    const badgeHTML = role.badge
+      ? `<span class="p-badge ${role.badge}">${role.label}</span>`
+      : '';
+
+    card.innerHTML = `
+      <div class="p-avatar-wrap">
+        <div class="p-avatar-ring"></div>
+        <img class="p-avatar" src="${s.img}" alt="${s.name}"
+             onerror="this.outerHTML='<div class=\\'p-avatar\\'>🎓</div>'"/>
+      </div>
+      <div class="p-name">${s.name}</div>
+      <div class="p-role">${role.label}</div>
+      ${badgeHTML}
+      <div class="p-divider"></div>
+      <div class="p-quote">${s.quote}</div>
+    `;
+    grid.appendChild(card);
+  });
+
+  // Re-run reveal observer
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); obs.unobserve(e.target); } });
+  }, {threshold:.08});
+  $$('.p-card',grid).forEach(c=>obs.observe(c));
+})();
+
+
+/* ══════════════════════════════════════════════════════════
+   9. CHILL ZONE
+══════════════════════════════════════════════════════════ */
+(function(){
+  /*
+    ► MẢNG ẢNH CHILL ZONE
+    Thay URL bằng link ảnh phong cảnh yên tĩnh
+  */
+  const CHILL_BG = [
+    {
+      /* ► Cảnh Lofi girl học bài */
+      url:   'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=1600&q=80',
+      label: '📚 Lofi Study Vibes',
+    },
+    {
+      /* ► Cảnh rừng Ghibli / Totoro */
+      url:   'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1600&q=80',
+      label: '🌿 Rừng Ghibli · Totoro',
+    },
+    {
+      /* ► Trời mưa yên bình */
+      url:   'https://images.unsplash.com/photo-1519692933481-e162a57d6721?w=1600&q=80',
+      label: '🌧 Trời Mưa Xoa Dịu',
+    },
+    {
+      /* ► Cảnh bình minh Doraemon */
+      url:   'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1600&q=80',
+      label: '🌄 Bình Minh Doraemon',
+    },
+    {
+      /* ► Cảnh biển hoàng hôn */
+      url:   'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1600&q=80',
+      label: '🌊 Biển Hoàng Hôn',
+    },
+    {
+      /* ► Phim Ghibli */
+      url:   'https://cdn-media.sforum.vn/storage/app/media/ctvseo_maihue/hinh-nen-ghibli/hinh-nen-ghibli-7.jpg',
+      label: '🌱 Ghibli',
+    },
+  ];
+
+  /*
+    ► QUOTES TRUYỀN CẢM HỨNG — Thay đổi theo từng hình nền
+  */
+  const QUOTES = [
+    { text:'"Hãy học như thể bạn sẽ sống mãi, hãy sống như thể bạn sẽ mất đi ngày mai."', author:'— Mahatma Gandhi' },
+    { text:'"Giữa những tán lá rì rào, ta tìm thấy bình yên mà tiền bạc không thể mua."', author:'— John Muir' },
+    { text:'"Mưa không hỏi trời có muốn hay không — nó cứ rơi, nhẹ nhàng và kiên định."', author:'— 12B11' },
+    { text:'"Mỗi buổi bình minh là một trang giấy trắng — hãy viết điều gì đó đẹp lên đó."', author:'— Khuyết danh' },
+    { text:'"Biển không bao giờ ngừng vỗ bờ — đó là cách nó yêu đất liền."', author:'— Tản mạn' },
+    { text:'"Trong im lặng của tuyết rơi, ta nghe thấy tiếng nói thật sự của mình."', author:'— Blaise Pascal' },
+  ];
+
+  let curBg      = 0;
+  let bgTimer    = null;
+  const INTERVAL = 300000; // 5 phút
+
+  const chillEl  = $('#chill');
+  const bgEls    = $$('.c-slide');
+  const bgLabel  = $('#c-bg-label');
+  const quoteEl  = $('#c-quote-text');
+  const authorEl = $('#c-quote-author');
+  const dotsEl   = $('#c-dots');
+
+  // Gán ảnh vào các slide element
+  bgEls.forEach((s,i)=>{
+    if(CHILL_BG[i]) s.style.backgroundImage=`url('${CHILL_BG[i].url}')`;
+  });
+
+  // Tạo dots
+  CHILL_BG.forEach((_,i)=>{
+    const d = document.createElement('div');
+    d.className='c-dot'+(i===0?' active':'');
+    d.addEventListener('click',()=>switchBg(i));
+    dotsEl && dotsEl.appendChild(d);
+  });
+
+  function updateDots(i){
+    $$('.c-dot',dotsEl).forEach((d,j)=>d.classList.toggle('active',j===i));
+  }
+
+  function switchBg(idx){
+    curBg=(idx+CHILL_BG.length)%CHILL_BG.length;
+    bgEls.forEach((s,i)=>s.classList.toggle('active',i===curBg));
+    if(bgLabel) bgLabel.textContent=CHILL_BG[curBg].label;
+    updateDots(curBg);
+
+    // Fade quote
+    if(quoteEl) quoteEl.classList.add('fade-out');
+    if(authorEl) authorEl.classList.add('fade-out');
+    setTimeout(()=>{
+      const q=QUOTES[curBg%QUOTES.length];
+      if(quoteEl){ quoteEl.textContent=q.text; quoteEl.classList.remove('fade-out'); }
+      if(authorEl){ authorEl.textContent=q.author; authorEl.classList.remove('fade-out'); }
+    },600);
+  }
+
+ function openChill(){
+    document.body.style.overflow='hidden';
+    chillEl.style.display='flex';
+    requestAnimationFrame(()=>requestAnimationFrame(()=>chillEl.classList.add('open')));
+    switchBg(curBg);
+    bgTimer=setInterval(()=>switchBg(curBg+1), INTERVAL);
+
+    // TỰ ĐỘNG CHỈ BẬT NHẠC LOFI KHI VÀO
+    const lofiAudio = document.getElementById('snd-lofi');
+    const lofiBtn = document.querySelector('.sound-toggle[data-sound="snd-lofi"]');
+    if (lofiAudio) {
+      lofiAudio.play().catch(()=>{}); // Bật nhạc Lofi
+    }
+    if (lofiBtn) {
+      lofiBtn.classList.add('on');    // Bật sáng icon Lofi
+    }
+  }
+
+  function closeChill(){
+    chillEl.classList.remove('open');
+    clearInterval(bgTimer); bgTimer=null;
+    document.body.style.overflow='';
+    setTimeout(()=>chillEl.style.display='none', 500);
+
+    // TỰ ĐỘNG TẮT TẤT CẢ ÂM THANH KHI THOÁT RA NGOÀI
+    const allSounds = ['snd-lofi', 'snd-rain', 'snd-birds'];
+    allSounds.forEach(id => {
+      const audio = document.getElementById(id);
+      const btn = document.querySelector(`.sound-toggle[data-sound="${id}"]`);
+      if (audio) {
+        audio.pause(); // Dừng nhạc
+      }
+      if (btn) {
+        btn.classList.remove('on'); // Tắt sáng icon
+      }
+    });
+  }
+
+  $('#btn-open-chill')  && $('#btn-open-chill').addEventListener('click',  openChill);
+  $('#btn-close-chill') && $('#btn-close-chill').addEventListener('click', closeChill);
+  document.addEventListener('keydown', e=>{ if(e.key==='Escape'&&chillEl.classList.contains('open')) closeChill(); });
+
+/* ── POMODORO ── */
+  const POM_WORK  = 25*60;
+  const POM_BREAK =  5*60;
+  const CIRCUM    = 2*Math.PI*44; // r=44 → ~276.5
+
+  let pomSec=POM_WORK, pomTotal=POM_WORK, pomWork=true, pomRunning=false, pomInt=null;
+
+  const pomMin=$('#pom-min'), pomSec2=$('#pom-sec');
+  const pomRing=$('#pom-ring'), pomStatus=$('#pom-status');
+  const pomToggle=$('#pom-toggle'), pomReset=$('#pom-reset');
+
+  function pomRender(){
+    if(pomMin)  pomMin.textContent  = pad(Math.floor(pomSec/60));
+    if(pomSec2) pomSec2.textContent = ':'+pad(pomSec%60);
+    const progress = pomSec/pomTotal;
+    if(pomRing) pomRing.style.strokeDashoffset = CIRCUM*(1-progress);
+  }
+
+  function pomSetMode(work){
+    pomWork=work; pomSec=work?POM_WORK:POM_BREAK; pomTotal=pomSec;
+    if(pomStatus) pomStatus.textContent=work?'Tập trung làm việc 🎯':'Nghỉ ngơi thôi 🍃';
+    pomRender();
+  }
+
+  // Hàm đếm ngược và gọi chim gõ kiến
+  function pomTick(){
+    if(pomSec <= 0){ 
+      const alarm = document.getElementById('snd-alarm');
+      if(alarm) {
+        alarm.currentTime = 0; 
+        alarm.play().catch(e => console.log(e)); 
+      }
+      pomSetMode(!pomWork); 
+      return; 
+    }
+    pomSec--; 
+    pomRender();
+  }
+
+  // Nút Bắt đầu / Tạm dừng
+  if(pomToggle) {
+    pomToggle.addEventListener('click', () => {
+      pomRunning = !pomRunning;
+      if(pomRunning){ 
+        pomInt = setInterval(pomTick, 1000); 
+        pomToggle.textContent = 'Tạm dừng'; 
+      } else { 
+        clearInterval(pomInt); 
+        pomToggle.textContent = 'Tiếp tục'; 
+      }
+    });
+  }
+
+  // Nút Reset
+  if(pomReset) {
+    pomReset.addEventListener('click', () => {
+      clearInterval(pomInt); 
+      pomRunning = false;
+      if(pomToggle) pomToggle.textContent = 'Bắt đầu';
+      pomSetMode(true);
+    });
+  }
+
+  pomRender();
+ 
+  /* ── SOUNDBOARD ── */
+  $$('.snd-vol').forEach(sl=>{
+    const aud=document.getElementById(sl.dataset.snd);
+    if(aud) aud.volume=parseFloat(sl.value);
+    sl.addEventListener('input',()=>{ if(aud) aud.volume=parseFloat(sl.value); });
+  });
+
+  $$('.snd-toggle').forEach(btn=>{
+    const aud=document.getElementById(btn.dataset.snd);
+    if(!aud) return;
+    btn.addEventListener('click',()=>{
+      const on=btn.classList.toggle('on');
+      if(on) aud.play().catch(()=>btn.classList.remove('on'));
+      else { aud.pause(); aud.currentTime=0; }
+    });
+  });
+
+})();
+</script>
+
+</body>
+</html>
